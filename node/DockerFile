@@ -9,7 +9,7 @@ RUN npm install
 COPY . .
 
 # For dev
-CMD ["npm", "run", "start.dev"]
+CMD ["npm", "run", "start"]
 
 # For prod
 # CMD ["npm", "run", "start"]
