@@ -1,3 +1,15 @@
-FROM node
-COPY ./usr/src/app
-CMD ["npm", "start"]
+FROM node:18
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+# For dev
+CMD ["npm", "run", "start.dev"]
+
+# For prod
+# CMD ["npm", "run", "start"]
