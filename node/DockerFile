@@ -1,0 +1,3 @@
+FROM node
+COPY ./usr/src/app
+CMD ["npm", "start"]
