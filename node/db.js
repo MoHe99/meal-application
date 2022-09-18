@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
 // Establish database-connection
-const sequelize = new Sequelize("postgres://postgres:postgres@node-application-db-1:5432/postgres", {
+const sequelize = new Sequelize("postgres://postgres:postgres@node-application-postgres:5432/postgres", {
     dialect: "postgres",
     protocol: "postgres",
     dialectOptions: {},
