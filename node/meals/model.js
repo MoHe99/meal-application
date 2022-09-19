@@ -1,18 +1,26 @@
-import { DataTypes } from "sequelize";
+import { DataTypes, Sequelize } from "sequelize";
 import sequelize from "../db.js";
 
 // Define meals model
 const Meals = sequelize.define(
     'meals',
     {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true,
+        },
         title: {
             type: DataTypes.STRING,
+            allowNull: false,
         },
         description: {
             type: DataTypes.STRING,
+            allowNull: false,
         },
         price: {
             type: DataTypes.FLOAT,
+            allowNull: false,
         },
     },
     {
@@ -28,11 +36,11 @@ const model = {
     async getOne(id) {
         return Meals.findByPk(id);
     },
-    async create(user) {
-        return (await Meals.upsert(user))[0];
+    async createMeal(meal) {
+        return (await Meals.create(meal))[0];
     },
-    async update(id, user) {
-        return (await Meals.upsert(user))[0];
+    async updateMeal(meal) {
+        return (await Meals.upsert(meal))[0];
     },
     remove(id) {
         return Meals.destroy({ where: { id } });

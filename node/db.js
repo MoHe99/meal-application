@@ -4,7 +4,7 @@ import { Sequelize } from "sequelize";
 const sequelize = new Sequelize("postgres://postgres:postgres@node-application-postgres:5432/postgres", {
     dialect: "postgres",
     protocol: "postgres",
-    dialectOptions: {},
+    omitNull: true,
 });
 
 // Test / Log database connection status
