@@ -21,26 +21,43 @@ export async function getOne(request, response) {
     }
 }
 
-export async function create(request, response) {
+export async function createMeal(request, response) {
+
+    // Validate request body with prepared scheme
     const { value: meal, error } = createMealsScheme.validate(request.body, {
         abortEarly: false,
     });
 
     if (error) {
-    
+        console.log(error);
+        response.statusCode = 400;        
     } 
     else {
-        const newMeal = await model.create(meal);
+        console.log(meal)
+        const newMeal = await model.createMeal(meal);
         response.statusCode = 201;
         response.json(newMeal);
     }
 }
 
 
-export async function update(request, response) {
-    const meals = await model.getAll();
+export async function updateMeal(request, response) {
 
-    response.json(meals);
+    // Validate request body with prepared scheme
+    const { value: meal, error } = updateMealsScheme.validate(request.body, {
+        abortEarly: false,
+    });
+
+    if (error) {
+        console.log(error);
+        response.statusCode = 400;        
+    } 
+    else {
+        console.log(meal)
+        const newMeal = await model.updateMeal(meal);
+        response.statusCode = 201;
+        response.json(newMeal);
+    }
 }
 
 export async function remove(request, response) {
