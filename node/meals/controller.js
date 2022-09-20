@@ -60,8 +60,11 @@ export async function updateMeal(request, response) {
     }
 }
 
-export async function remove(request, response) {
-    const meals = await model.getAll();
+export async function deleteMeal(request, response) {
+    const id = parseInt(request.params.id, 10);
 
-    response.json(meals);
+    await model.deleteMeal(id);
+  
+    response.statusCode = 204;
+    response.send();
 }

@@ -42,7 +42,7 @@ const model = {
     async updateMeal(meal) {
         return (await Meals.upsert(meal))[0];
     },
-    remove(id) {
+    deleteMeal(id) {
         return Meals.destroy({ where: { id } });
     },
 }
