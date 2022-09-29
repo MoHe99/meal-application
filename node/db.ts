@@ -1,18 +1,18 @@
 import { Sequelize } from "sequelize";
+import * as dotenv from "dotenv";
+dotenv.config();
+
 
 // Establish database-connection
-const sequelize = new Sequelize("postgres://postgres:postgres@node-application-postgres:5432/postgres", {
-    dialect: "postgres",
-    protocol: "postgres",
+/* const sequelize = new Sequelize(dburl, {
+    dialect: process.env.DB_USER,
+    protocol: process.env.DB_PASSWORD,
     omitNull: true,
-});
+}); */
 
-// Test / Log database connection status
-try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+  host: process.env.DB_URI,
+  dialect: process.env.DB_DIALECT,
+});
 
 export default sequelize;

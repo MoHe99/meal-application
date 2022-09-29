@@ -1,9 +1,12 @@
 import express from 'express';
 import bodyparser from 'body-parser';
 import router from './meals/index.js';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT;
 
 
 // Middleware
