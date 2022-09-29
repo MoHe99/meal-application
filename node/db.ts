@@ -10,7 +10,7 @@ dotenv.config();
     omitNull: true,
 }); */
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+const sequelize: Sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
   host: process.env.DB_URI,
   dialect: process.env.DB_DIALECT,
 });
