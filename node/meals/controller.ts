@@ -1,18 +1,15 @@
-
-import model from "./model.js";
-import { createMealsScheme, updateMealsScheme } from "./mealsScheme.js";
+import model, {Meal} from "./model";
+import { createMealsScheme, updateMealsScheme } from "./mealsScheme";
 import { Request, Response } from "express";
 
 export async function getAll(request: Request, response: Response): Promise<void> {
-    const meals = await model.getAll();
-
+    const meals: Promise<Meal> = await model.getAll();
     response.json(meals);
 }
 
-export async function getOne(request: Request, response: Response) {
+export async function getOne(request: Request, response: Response): Promise<void> {
     const parsedId = parseInt(request.params.id, 10);
-
-    const meal = await model.getOne(parsedId);
+    const meal: Promise<Meal | null> = await model.getOne(parsedId);
 
     if(meal) {
         response.json(meal);
@@ -22,7 +19,7 @@ export async function getOne(request: Request, response: Response) {
     }
 }
 
-export async function createMeal(request: Request, response: Response) {
+export async function createMeal(request: Request, response: Response): Promise<void> {
 
     // Validate request body with prepared scheme
     const { value: meal, error } = createMealsScheme.validate(request.body, {
@@ -35,14 +32,14 @@ export async function createMeal(request: Request, response: Response) {
     } 
     else {
         console.log(meal)
-        const newMeal = await model.createMeal(meal);
+        const newMeal: Promise<Meal> = await model.createMeal(meal);
         response.statusCode = 201;
         response.json(newMeal);
     }
 }
 
 
-export async function updateMeal(request: Request, response: Response) {
+export async function updateMeal(request: Request, response: Response): Promise<void> {
 
     // Validate request body with prepared scheme
     const { value: meal, error } = updateMealsScheme.validate(request.body, {
@@ -55,14 +52,14 @@ export async function updateMeal(request: Request, response: Response) {
     } 
     else {
         console.log(meal)
-        const newMeal = await model.updateMeal(meal);
+        const newMeal: Promise<Meal> = await model.updateMeal(meal);
         response.statusCode = 201;
         response.json(newMeal);
     }
 }
 
-export async function deleteMeal(request: Request, response: Response) {
-    const id = parseInt(request.params.id, 10);
+export async function deleteMeal(request: Request, response: Response): Promise<void> {
+    const id: number = parseInt(request.params.id, 10);
 
     await model.deleteMeal(id);
   
