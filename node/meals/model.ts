@@ -58,30 +58,3 @@ const model: APIMethods = {
 }
 
 export default model;
-
-// Define meals model - without typescript
-/* const Meals = sequelize.define(
-    'meals',
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-        },
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        description: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        price: {
-            type: DataTypes.FLOAT,
-            allowNull: false,
-        },
-    },
-    {
-        timestamps: false,
-    }
-); */
