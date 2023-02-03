@@ -1,17 +1,35 @@
 version: '3.9'
 
 services:
-  node:
-    container_name: node-application-node
+  frontend:
+    container_name: client_frontend
+    build: ./react/react-frontend
+    volumes:
+      - ./react/react-frontend/:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    stdin_open: true
+    tty: true
+    environment:
+      - WATCHPACK_POLLING=true
+
+  api:
+    container_name: api_backend
     build: ./node
     volumes:
-      - ./node:/usr/src/app
+      - ./node/:/app
+      - /app/node_modules
     ports:
       - 8080:8080
 
   postgres:
-    container_name: node-application-postgres
+    container_name: postgres_database
     build: ./postgresql
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes: 
       - db:/var/lib/postgresql/data
       - ./postgresql/scripts/:/docker-entrypoint-initdb.d/
