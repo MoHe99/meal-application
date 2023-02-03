@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {GetTokenSilentlyOptions, useAuth0} from '@auth0/auth0-react';
+import { useAuth0} from '@auth0/auth0-react';
 
 const Meal = () => {
-    const { getAccessTokenSilently, user } = useAuth0();
+    const { getAccessTokenSilently } = useAuth0();
     const [posts, setPosts] = useState<{ id: number, title: string, description: string, price: string }[]>([]);
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
@@ -32,13 +32,13 @@ const Meal = () => {
     }, [getAccessTokenSilently]);
 
     return (
-        <div>
+        <div className="meals">
             {isAuthenticated ? posts.map((post) => {
                 return (
-                    <div key={post["id"]}>
-                        <h3>{post["description"]}</h3>
-                        <p>{post["title"]}</p>
-                        <p>{post["price"]}</p>
+                    <div key={post["id"]} className="meal">
+                        <h3>{post["title"]}</h3>
+                        <p>{post["description"]}</p>
+                        <p>{post["price"]}€</p>
                     </div>
                 );
             }) : ""}

@@ -9,22 +9,17 @@ function Profile () {
 
     return (
        <div className="profile">
-           {isAuthenticated ?
-               <div>
-                <img src={user?.picture} alt={user?.name} />
-                   <div className="menu">
-                       <h3>{user?.name}</h3>
-                       <p>{user?.email}</p>
-                       <LogoutButton/>
-                   </div>
-
-               </div> : <LoginButton/>}
+           <div>
+            <img src={user?.picture} alt={user?.name} />
+               <div className="menu">
+                   <h3>{user?.name}</h3>
+                   <p>{user?.email}</p>
+                   <p>{user?.user_roles}</p>
+                   <LogoutButton/>
+               </div>
+           </div>
        </div>
     );
-
-    <style>
-
-    </style>
 };
 
 export default Profile;
