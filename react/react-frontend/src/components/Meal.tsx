@@ -32,17 +32,23 @@ const Meal = () => {
     }, [getAccessTokenSilently]);
 
     return (
-        <div className="meals">
-            {isAuthenticated ? posts.map((post) => {
-                return (
-                    <div key={post["id"]} className="meal">
-                        <h3>{post["title"]}</h3>
-                        <p>{post["description"]}</p>
-                        <p>{post["price"]}€</p>
-                    </div>
-                );
-            }) : ""}
+        <div className="meals-page">
+            <h2>Menü</h2>
+            <div className="meals">
+                {isAuthenticated ? posts.map((post) => {
+                    return (
+                        <div key={post["id"]} className="meal">
+                            <div className="info">
+                                <h3>{post["title"]}</h3>
+                                <p>{post["description"]}</p>
+                                <p>{post["price"]}€</p>
+                            </div>
+                        </div>
+                    );
+                }) : ""}
+            </div>
         </div>
+
     );
 };
 

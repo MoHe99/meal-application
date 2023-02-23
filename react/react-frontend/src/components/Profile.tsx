@@ -8,17 +8,20 @@ function Profile () {
     console.log(user, isAuthenticated)
 
     return (
-       <div className="profile">
-           <div>
-            <img src={user?.picture} alt={user?.name} />
-               <div className="menu">
-                   <h3>{user?.name}</h3>
-                   <p>{user?.email}</p>
-                   <p>{user?.user_roles}</p>
-                   <LogoutButton/>
-               </div>
-           </div>
-       </div>
+        <div className="profile">
+            <h2>
+                Profil Informationen
+            </h2>
+            <div className="profile-information">
+                <img src={user?.picture} alt={user?.name} />
+                <div className="information">
+                    <h3>{user?.name}</h3>
+                    <p>{user?.email}</p>
+                    <p>{user?.user_roles}</p>
+                    <LogoutButton/>
+                </div>
+            </div>
+        </div>
     );
 };
 

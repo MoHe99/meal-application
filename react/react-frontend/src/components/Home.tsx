@@ -9,8 +9,9 @@ const Home = () => {
 
     return (
         <div className="home">
-            <h2>Welcome</h2>
-            <p>Blablabla</p>
+            <h2>Gude wie!</h2>
+            <p>Muss net schmegge, muss wirge! Des ham mer schon oft gehert. Ai sischä is die Wirkung wischtisch abbä son bissche Mundwassä daffs vorher schon ach sin!
+                Abbä macht eich kei Sorsche! Unser Esse tut wirge und schmegge!</p>
         </div>
     );
 }
