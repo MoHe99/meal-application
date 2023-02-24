@@ -1,25 +1,38 @@
-import express from 'express';
+import express, { Express } from 'express';
+
 import bodyparser from 'body-parser';
-import router from './meals/index.js';
 import * as dotenv from 'dotenv';
 import helmet from 'helmet';
+import { auth } from 'express-oauth2-jwt-bearer';
 
-// Initialize server
-const app = express();
+import router from './meals/index';
 
-// Initialize environment variables
+// Load environment variables into process.env
 dotenv.config();
-const port: number = process.env.PORT;
 
-// Middleware: Third Party
-app.use(helmet()); // For basic http-headers / security reasons
+// Initialize express server
+const app: Express = express();
+const cors = require('cors');
+
+const jwtCheck = auth({
+    audience: "https://node-application/api",
+    issuerBaseURL: 'https://mh-wbdv.eu.auth0.com/',
+    tokenSigningAlg: 'RS256'
+});
+
+//Third Party Middleware
 app.use(bodyparser.urlencoded({extended: false}));  // For parsing url-bodies
 app.use(bodyparser.json()); // For parsing json-bodies
+app.use(helmet({
+    crossOriginResourcePolicy: false,
+})); // For basic http-headers / security reasons
+app.use(cors());
+app.use(jwtCheck);
 
-// Middleware: Own
-app.use('/meals', router); // REST API for controlling meals
+//Own Middleware
+app.use('/meals' ,router); // REST API for controlling meals
 
 // Start server
-app.listen(port, () => {
-    console.log(`Server listening on http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server listening on http://localhost:${process.env.PORT}`);
 });
