@@ -1,9 +1,9 @@
-import { Model, InferAttributes, InferCreationAttributes, CreationOptional, DataTypes } from 'sequelize';
-import sequelize from "../db.js";
-
+import {Model, InferAttributes, InferCreationAttributes, CreationOptional, DataTypes, NonAttribute} from 'sequelize';
+import sequelize from "../db";
+import {APIMethods} from "../general/modelAPI";
 
 // Defines a model for meals with typescript
-class Meal extends Model< InferAttributes<Meal>, InferCreationAttributes<Meal> > {
+export class Meal extends Model< InferAttributes<Meal>, InferCreationAttributes<Meal> > {
   declare id: CreationOptional<number>;
   declare title: string;
   declare description: string;
@@ -39,7 +39,7 @@ Meal.init(
 );
 
 // Define meals model methods
-const model = {
+const model: APIMethods = {
     async getAll() {
         return Meal.findAll();
     },
@@ -58,30 +58,3 @@ const model = {
 }
 
 export default model;
-
-// Define meals model - without typescript
-/* const Meals = sequelize.define(
-    'meals',
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-        },
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        description: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        price: {
-            type: DataTypes.FLOAT,
-            allowNull: false,
-        },
-    },
-    {
-        timestamps: false,
-    }
-); */
