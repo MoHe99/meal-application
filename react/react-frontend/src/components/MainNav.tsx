@@ -42,10 +42,10 @@ function MainNav() {
                     </li>
                     <Authenticated>
                         <li>
-                            <Link to={{pathname: "/profile"}} onClick={closeMobileMenu}>Profil</Link>
+                            <Link to={{pathname: "/meal"}} onClick={closeMobileMenu}>Menü</Link>
                         </li>
                         <li>
-                            <Link to={{pathname: "/meal"}} onClick={closeMobileMenu}>Menü</Link>
+                            <Link to={{pathname: "/profile"}} onClick={closeMobileMenu}>Profil</Link>
                         </li>
                     </Authenticated>
                     <Protected>
@@ -66,8 +66,6 @@ function MainNav() {
                 <Route path="/admin-dashboard" element={<main><CheckAdmin><Admin/></CheckAdmin></main>}/>
             </Routes>
         </BrowserRouter>
-
-
     )
 }
 

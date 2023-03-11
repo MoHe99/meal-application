@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { getAll, getOne, createMeal, updateMeal, deleteMeal } from "./controller";
 
-const router: Router = Router();
+const mealsRouter: Router = Router();
 
-router.get('/' , getAll);
-router.get('/:id', getOne);
-router.post('/', createMeal);
-router.put('/', updateMeal);
-router.delete('/:id', deleteMeal);
+mealsRouter.get('/' , getAll);
+mealsRouter.get('/:id', getOne);
+mealsRouter.post('/', createMeal);
+mealsRouter.put('/', updateMeal);
+mealsRouter.delete('/:id', deleteMeal);
 
-export default router;
+export default mealsRouter;

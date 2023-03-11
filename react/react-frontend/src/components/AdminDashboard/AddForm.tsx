@@ -35,7 +35,7 @@ const AddForm: React.FC<AddFormProps> = ({ onSubmit, onClose }) => {
                 </div>
                 <div className="form-input">
                     <label>Price</label>
-                    <input step="0.01" type="number" value={newData.price} onChange={handlePriceChange} />
+                    <input step="0.01" min="0" max="100" type="number" value={newData.price} onChange={handlePriceChange} />
                 </div>
                 <div className="add-form-buttons">
                     <button className="add-button" type="submit">Add</button>

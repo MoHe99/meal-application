@@ -5,7 +5,8 @@ import * as dotenv from 'dotenv';
 import helmet from 'helmet';
 import { auth } from 'express-oauth2-jwt-bearer';
 
-import router from './meals/index';
+import mealsRouter from './meals/index';
+import bookingsRouter from './bookings/index';
 
 // Load environment variables into process.env
 dotenv.config();
@@ -30,7 +31,8 @@ app.use(cors());
 app.use(jwtCheck);
 
 //Own Middleware
-app.use('/meals' ,router); // REST API for controlling meals
+app.use('/meals' ,mealsRouter); // REST API for controlling meals
+app.use('/bookings', bookingsRouter)
 
 // Start server
 app.listen(process.env.PORT, () => {

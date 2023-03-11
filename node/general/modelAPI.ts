@@ -1,7 +1,13 @@
+import {Meal} from "../meals/model";
+
 export interface APIMethods {
     getAll(): Promise<any>;
-    getOne(id: number): Promise<any | null>;
-    createMeal(entity: any): Promise<any>
-    updateMeal(entity: any): Promise<any>;
-    deleteMeal(id: number): Promise<number>;
+    getOne?(id: number | string): Promise<any | null>;
+    createEntity(entity: any): Promise<any>
+    updateEntity(entity: any): Promise<any>;
+    deleteEntity(id: number | string): Promise<number>;
+    getAllWhere?(options: {
+        include: { model: typeof Meal },
+        where: { user_id: string }
+    }): Promise<any>;
 }

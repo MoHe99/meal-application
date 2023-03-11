@@ -2,7 +2,7 @@ import {Model, InferAttributes, InferCreationAttributes, CreationOptional, DataT
 import sequelize from "../db";
 import {APIMethods} from "../general/modelAPI";
 
-// Defines a model for meals with typescript
+// Defines a mealsModel for meals with typescript
 export class Meal extends Model< InferAttributes<Meal>, InferCreationAttributes<Meal> > {
   declare id: CreationOptional<number>;
   declare title: string;
@@ -10,7 +10,7 @@ export class Meal extends Model< InferAttributes<Meal>, InferCreationAttributes<
   declare price: number;
 }
 
-// Initializes a model for meals with typescript
+// Initializes a mealsModel for meals with typescript
 Meal.init(
     {
         id: {
@@ -38,23 +38,23 @@ Meal.init(
     }
 );
 
-// Define meals model methods
-const model: APIMethods = {
+// Define meals mealsModel methods
+const mealsModel: APIMethods = {
     async getAll() {
         return Meal.findAll();
     },
     async getOne(id: number) {
         return Meal.findByPk(id);
     },
-    async createMeal(meal: Meal) {
+    async createEntity(meal: Meal) {
         return (await Meal.create(meal));
     },
-    async updateMeal(meal: Meal) {
+    async updateEntity(meal: Meal) {
         return (await Meal.upsert(meal))[0];
     },
-    deleteMeal(id: number) {
+    deleteEntity(id: number) {
         return Meal.destroy({ where: { id } });
     },
 }
 
-export default model;
+export default mealsModel;

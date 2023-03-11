@@ -1,0 +1,22 @@
+.profile {
+  .profile-information {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .information {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 0;
+      align-items: flex-start;
+    }
+
+    img {
+      border-radius: 5rem;
+      height: 10rem;
+      width: 10rem;
+      display: block;
+    }
+  }
+}

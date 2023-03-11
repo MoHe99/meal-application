@@ -4,8 +4,7 @@ import LogoutButton from "./LogoutButton";
 import LoginButton from './LoginButton';
 
 function Profile () {
-    const { user, isAuthenticated } = useAuth0();
-    console.log(user, isAuthenticated)
+    const { user } = useAuth0();
 
     return (
         <div className="profile">
