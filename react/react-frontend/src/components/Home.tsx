@@ -5,8 +5,6 @@ import LogoutButton from "./LogoutButton";
 import {useAuth0} from "@auth0/auth0-react";
 
 const Home = () => {
-    const { isAuthenticated } = useAuth0();
-
     return (
         <div className="home">
             <h2>Willkommen</h2>

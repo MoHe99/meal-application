@@ -21,3 +21,5 @@ export interface AddFormProps {
     onSubmit: (data: { title: string; description: string; price: number; }) => void;
     onClose: () => void;
 }
+
+export type Mode = 'edit' | 'view';

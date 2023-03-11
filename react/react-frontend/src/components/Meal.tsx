@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0} from '@auth0/auth0-react';
+import MealItem from "./MealItem";
+import {Data} from "../interfaces/interfaces";
 
 const Meal = () => {
     const { getAccessTokenSilently } = useAuth0();
-    const [posts, setPosts] = useState<{ id: number, title: string, description: string, price: string }[]>([]);
+    const [data, setData] = useState<Data[]>([]);
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
     useEffect(() => {
@@ -20,10 +22,8 @@ const Meal = () => {
                         Authorization: `Bearer ${token}`,
                     },
                 });
+                setData(await response.json());
 
-                let data = await response.json()
-
-                setPosts(data);
             } catch (error) {
                 console.error(error);
             }
@@ -35,17 +35,15 @@ const Meal = () => {
         <div className="meals-page">
             <h2>Menü</h2>
             <div className="meals">
-                {isAuthenticated ? posts.map((post) => {
-                    return (
-                        <div key={post["id"]} className="meal">
-                            <div className="info">
-                                <h3>{post["title"]}</h3>
-                                <p>{post["description"]}</p>
-                                <p>{post["price"]}€</p>
-                            </div>
-                        </div>
-                    );
-                }) : ""}
+                {isAuthenticated ? data.map(meal => (
+                    <MealItem
+                        key={meal.id}
+                        meal={meal}
+                        mode='view'
+                        data={data}
+                        handleUpdateData={setData}
+                    />
+                )) : ''}
             </div>
         </div>
 

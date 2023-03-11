@@ -4,11 +4,13 @@ import {Data} from "../../interfaces/interfaces";
 import UpdateForm from "./UpdateForm";
 import DeletePopUp from "./DeletePopUp";
 import AddForm from "./AddForm";
+import MealItem from "../MealItem";
 
 
 function AdminDashboard() {
-    const [data, setData] = useState<Data[]>([]);
     const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+
+    const [data, setData] = useState<Data[]>([]);
     const [showPost, setShowPost] = useState<boolean>(false);
     const [showUpdate, setShowUpdate] = useState<number | null>(null);
     const [showDelete, setShowDelete] = useState<number | null>(null);
@@ -139,45 +141,23 @@ function AdminDashboard() {
         <div className='admin-dashboard'>
             <h2>Admin Dashboard</h2>
             <button onClick={() => handlePost()} className="add-meal-button">Add Meal</button>
+            {showPost && (
+                <AddForm
+                    onSubmit={handlePostSubmit}
+                    onClose={() => {setShowPost(false); activateScroll();}}
+                />
+            )}
 
             <div className='meals'>
-                {isAuthenticated ? data.map((item) => {
-                    return (
-                        <div key={item['id']} className='meal'>
-                            <div className='info'>
-                                <h3>{item['title']}</h3>
-                                <p>{item['description']}</p>
-                                <p>{item['price']}€</p>
-                            </div>
-                            <div className="options">
-                                <button className="delete-button" onClick={() => handleDelete(item.id)}>Delete</button>
-                                <button className="update-button" onClick={() => handleUpdate(item)}>Update</button>
-                            </div>
-
-                            {showPost && (
-                                <AddForm
-                                    onSubmit={handlePostSubmit}
-                                    onClose={() => {setShowPost(false); activateScroll();}}
-                                />
-                            )}
-
-                            {showUpdate === item.id && (
-                                <UpdateForm
-                                    data={selectedData}
-                                    onSubmit={handleUpdateSubmit}
-                                    onClose={() => {setShowUpdate(null); activateScroll();}}
-                                />
-                            )}
-                            {showDelete === item.id && (
-                                <DeletePopUp
-                                    data={item}
-                                    onSubmit={handleDeleteSubmit}
-                                    onClose={() => {setShowDelete(null); activateScroll();}}
-                                />
-                            )}
-                        </div>
-                    );
-                }) : ""}
+                {isAuthenticated ? data.map(meal => (
+                    <MealItem
+                        key={meal.id}
+                        meal={meal}
+                        mode='edit'
+                        data={data}
+                        handleUpdateData={setData}
+                    />
+                )) : ''}
             </div>
         </div>
     )
