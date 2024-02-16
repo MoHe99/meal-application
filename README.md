@@ -5,6 +5,9 @@
 - pnpm
 - make
 
+### Clone project
+`git@github.com:MoHe99/meal-application.git`
+
 ### Install dependencies
 - Frontend:
 `cd frontend && pnpm i` \
