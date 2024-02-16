@@ -2,10 +2,10 @@ version: '3.9'
 
 services:
   frontend:
-    container_name: client_frontend
-    build: ./react/react-frontend
+    container_name: frontend
+    build: ./frontend
     volumes:
-      - ./react/react-frontend/:/app
+      - ./frontend/:/app
       - /app/node_modules
     ports:
       - 3000:3000
@@ -13,29 +13,47 @@ services:
     tty: true
     environment:
       - WATCHPACK_POLLING=true
+    networks:
+      - network-meal-booking-application
 
   api:
-    container_name: api_backend
-    build: ./node
+    container_name: api
+    build: ./api
     volumes:
-      - ./node/:/app
+      - ./api/:/app
       - /app/node_modules
     ports:
-      - 8080:8080
+      - '${EXPRESS_TARGET_PORT}:${EXPRESS_SYSTEM_PORT}'
+    environment:
+      - EXPRESS_SYSTEM_PORT=${EXPRESS_SYSTEM_PORT}
+      - DB_URI=${DB_URI}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USER=${DB_USER}
+      - DB_NAME=${DB_NAME}
+      - DB_DIALECT=${DB_DIALECT}
+    networks:
+      - network-meal-booking-application
 
-  postgres:
-    container_name: postgres_database
-    build: ./postgresql
-    restart: always
+  database:
+    container_name: database
+    build: ./database
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-    volumes: 
-      - db:/var/lib/postgresql/data
-      - ./postgresql/scripts/:/docker-entrypoint-initdb.d/
+      POSTGRES_DB: ${DB_NAME}
+    restart: always
+    volumes:
+      - database_data:/var/lib/postgresql/data
+      - ./database/scripts/:/docker-entrypoint-initdb.d/
+      - ./database/scripts:/scripts
     ports:
-      - 5432:5432
+      - "${DB_TARGET_PORT}:${DB_SYSTEM_PORT}"
+    networks:
+      - network-meal-booking-application
 
 volumes:
-  db:
+  database_data:
     driver: local
+
+networks:
+  network-meal-booking-application:
