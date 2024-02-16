@@ -1,0 +1,50 @@
+@import './Variables';
+
+.meals {
+	margin-top: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+
+	.meal {
+		padding: 1rem;
+		width: 100%;
+		border-radius: 0.5rem;
+		background: $color-red-light;
+		color: $color-yellow;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		flex-direction: column;
+		gap: 1rem;
+
+		h2 {
+			text-align: left;
+		}
+
+		@media screen and (min-width: $breakpoint-desktop-small) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			width: calc(50% - 0.5rem);
+		}
+
+		.options {
+			display: flex;
+			gap: 0.5rem;
+			flex-wrap: wrap;
+			flex-direction: column;
+
+			button {
+				width: 100%;
+			}
+
+			@media screen and (min-width: $breakpoint-tablet) {
+				gap: 1rem;
+				flex-direction: row;
+			}
+		}
+	}
+}
