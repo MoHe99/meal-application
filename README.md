@@ -5,11 +5,14 @@
 - pnpm
 - make
 
+### Clone project
+`git@github.com:MoHe99/meal-application.git`
+
 ### Install dependencies
-- Frontend:
-`cd frontend && pnpm i` \
-- API:
-`cd api && pnpm i`
+First move into project folder: `cd meal-application`. \
+Then do both of the following:
+- `cd frontend && pnpm i`
+- `cd api && pnpm i`
 
 ### Start application
 `make app-start`
