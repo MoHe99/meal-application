@@ -1,5 +1,0 @@
-FROM postgres:14.5
-
-ENV POSTGRES_PASSWORD postgres
-ENV POSTGRES_DB postgres
-ENV POSTGRES_USER postgres
