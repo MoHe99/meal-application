@@ -1,0 +1,93 @@
+@import './Variables';
+
+.admin-dashboard {
+	.add-meal-button {
+		width: 100%;
+	}
+
+	button {
+		&.delete-button {
+			background-color: $color-yellow;
+			color: $color-red-dark;
+		}
+
+		&.update-button,
+		&.add-button,
+		&.add-meal-button {
+			background-color: $color-green;
+			color: $color-yellow;
+		}
+
+		&.close-button {
+			background-color: $color-red-dark;
+			color: $color-yellow;
+		}
+	}
+
+	.update-meal,
+	.delete-meal,
+	.add-meal {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.76);
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+
+		form {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			gap: 1rem;
+			width: 90%;
+			background-color: $color-background;
+			padding: 1rem;
+			border-radius: 0.5rem;
+
+			@media screen and (min-width: $breakpoint-desktop-small) {
+				width: 50%;
+			}
+
+			input {
+				padding: 1rem;
+				border: none;
+				border-radius: 0.5rem;
+			}
+
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
+			input[type='number'] {
+				-moz-appearance: textfield;
+			}
+
+			.form-input {
+				display: flex;
+				flex-direction: column;
+				gap: 0.25rem;
+			}
+
+			.update-form-buttons,
+			.delete-popup-buttons,
+			.add-form-buttons {
+				display: flex;
+				gap: 1rem;
+
+				button {
+					width: calc(50% - 0.5rem);
+				}
+			}
+		}
+	}
+
+	.add-meal {
+		background-color: rgba(0, 0, 0, 0.35);
+	}
+}
