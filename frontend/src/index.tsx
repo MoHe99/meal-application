@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { Auth0Provider } from '@auth0/auth0-react';
@@ -10,15 +9,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 	<Auth0Provider
-		domain={'mh-wbdv.eu.auth0.com'}
-		clientId={'j6tbhOqjNoIbQUECCkZYfzWK8kF9YQTX'}
+		domain={import.meta.env.VITE_AUTH0_DOMAIN}
+		clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
 		authorizationParams={{
 			redirect_uri: window.location.origin,
-			scope: 'read:current_user openid profile email',
-			audience: 'https://node-application/api', // Value in Identifier field for the API being called.
+			scope: import.meta.env.VITE_AUTH0_SCOPE,
+			audience: import.meta.env.VITE_AUTH0_AUDIENCE,
 		}}>
-		<App />
-	</Auth0Provider>,
+    <App />
+</Auth0Provider>,
 );
 
 reportWebVitals();

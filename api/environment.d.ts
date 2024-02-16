@@ -8,10 +8,10 @@ declare global {
 			DB_PASSWORD: string;
 			DB_URI: string;
 			DB_DIALECT: Dialect;
-			PORT: number;
-			AUTH0_DOMAIN: string;
-			AUTH0_CLIENT_ID: string;
-			AUTH0_CLIENT_SECRET: string;
+			DB_TARGET_PORT: number;
+			VITE_AUTH0_DOMAIN: string;
+			VITE_AUTH0_CLIENT_ID: string;
+			VITE_AUTH0_CLIENT_SECRET: string;
 		}
 	}
 }
