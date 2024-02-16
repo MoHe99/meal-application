@@ -9,7 +9,7 @@
 `git@github.com:MoHe99/meal-application.git`
 
 ### Install dependencies
-First move into project folder: `cd meal-application`.
+First move into project folder: `cd meal-application`. \
 Then do both of the following:
 - `cd frontend && pnpm i`
 - `cd api && pnpm i`
