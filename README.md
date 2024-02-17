@@ -7,7 +7,7 @@ Before you begin, ensure you have
 - pnpm
 - make
 
-installed on your system. These tools are necessary for installing dependencies and running the visualizer locally.
+installed on your system. These tools are necessary for installing dependencies and running the application locally.
 
 ## Getting Started
 Follow these steps to set up and launch the Meal Application on your local system:
