@@ -26,23 +26,23 @@ Follow these steps to set up and launch the Meal Application on your local syste
     
 5. **Create environment variables**
    
-        Create a file in the root directory named .env and copy the content of .env.sample in it. In there fill the empty variables with your custom data.
-        
-        > [!NOTE]
-        > In cases where I applied to a company, I can give you the correct environment variables for Auth0, if you would like to test the login functionality and therefore the whole application beyond code reviewing.
-        > ##### Log in
-        > - Test Admin credentials: 
-        >    - admin@test.de
-        >    - Password1!
-        > - Test User credentials: 
-        >    - user@test.de
-        >    - Password1!
+    Create a file in the root directory named .env and copy the content of .env.sample in it. In there fill the empty variables with your custom data.
+    
+    > [!NOTE]
+    > In cases where I applied to a company, I can give you the correct environment variables for Auth0, if you would like to test the login functionality and therefore the whole application beyond code reviewing.
+    > ##### Log in
+    > - Test Admin credentials: 
+    >    - admin@test.de
+    >    - Password1!
+    > - Test User credentials: 
+    >    - user@test.de
+    >    - Password1!
     
 6. **Start the development environment**
-   
-        Launch the development server using `make app-start`. This command builds all containers and starts them (including watching for file changes).
-        
-        After the server has started, you can visit `http://localhost:3000` and start testing the app.
+
+    Launch the development server using `make app-start`. This command builds all containers and starts them (including watching for file changes).
+    
+    After the server has started, you can visit `http://localhost:3000` and start testing the app.
 
 ## Make commands
 
