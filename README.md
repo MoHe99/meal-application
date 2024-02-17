@@ -11,16 +11,17 @@ installed on your system. These tools are necessary for installing dependencies 
 
 ## Getting Started
 Follow these steps to set up and launch the Meal Application on your local system:
-    1. **Clone the repository**
+
+1. **Clone the repository**
     `git@github.com:MoHe99/meal-application.git`
     
-    2. **Install dependencies**
+2. **Install dependencies**
         First move into project folder: `cd meal-application`. \
         Then do both of the following:
         - `cd frontend && pnpm i`
         - `cd api && pnpm i`
     
-    3. **Create environment variables**
+3. **Create environment variables**
         Create a file in the root directory named ".env" and copy the content of ".env.sample" in it. In there fill the empty variables with your custom data.
         
         > [!NOTE]
@@ -33,7 +34,7 @@ Follow these steps to set up and launch the Meal Application on your local syste
         >    - user@test.de
         >    - Password1!
     
-    4. **Start the development environment**
+4. **Start the development environment**
         Launch the development server using `make app-start`. This command builds all containers and starts them (including watching for file changes).
         
         After the server has started, you can visit `http://localhost:3000` and start testing the app.
