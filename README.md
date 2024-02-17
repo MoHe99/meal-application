@@ -17,11 +17,11 @@ Then do both of the following:
 ### Create .env
 Create a file in the root directory named ".env" and copy the content of ".env.sample" in it. In there fill the empty variables with your custom data.
 
-### In cases where I applied to a company
-#### Get correct Auth0 Variables
+#### In cases where I applied to a company
+##### Get correct Auth0 Variables
 I can give you the correct environment variables for Auth0, if you would like to test the login functionality and therefore the whole application beyond code reviewing.
 
-#### Log in
+##### Log in
 - Test Admin credentials: 
     - admin@test.de
     - Password1!
