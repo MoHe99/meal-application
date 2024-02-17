@@ -1,5 +1,5 @@
 {
-	"name": "node",
+	"name": "api",
 	"version": "1.0.0",
 	"description": "Simple node application",
 	"main": "index.js",
