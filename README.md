@@ -18,20 +18,20 @@ Follow these steps to set up and launch the Meal Application on your local syste
    
     `git clone git@github.com:MoHe99/meal-application.git`
     
-3. **Install dependencies**
+2. **Install dependencies**
    
     Navigate to the cloned repository directory and install all required dependencies:
 
    `cd meal-application/frontend && pnpm i && cd ../api && pnpm i && cd ..`
     
-5. **Create environment variables**
+3. **Create environment variables**
    
     Create a file in the root directory named `.env` and copy the content of `.env.sample` in it. Fill the empty variables with your custom data.
 
 > [!NOTE]
 > In cases where I applied to a company, I can give you environment variables for my prepared Auth0 Service and credentials for test users, if you would like to test the application in action.
     
-6. **Start the development environment**
+4. **Start the development environment**
 
     Launch the development server using `make app-start`. This command builds all containers and starts them (including watching for file changes).
     
