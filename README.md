@@ -29,14 +29,7 @@ Follow these steps to set up and launch the Meal Application on your local syste
     Create a file in the root directory named .env and copy the content of .env.sample in it. Fill the empty variables with your custom data.
 
 > [!NOTE]
-> In cases where I applied to a company, I can give you the correct environment variables for Auth0, if you would like to test the login functionality and therefore the whole application beyond code reviewing.
-> ##### Log in
-> - Test Admin credentials: 
->    - admin@test.de
->    - Password1!
-> - Test User credentials: 
->    - user@test.de
->    - Password1!
+> In cases where I applied to a company, I can give you environment variables for my prepared Auth0 Service and credentials for test users, if you would like to test the application in action.
     
 6. **Start the development environment**
 
