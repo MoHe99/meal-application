@@ -54,5 +54,5 @@ Follow these steps to set up and launch the Meal Application on your local syste
 | Export current state of database (will be used as init script on rebuild)   | `make export-postgres`                                 |
 
 > [!IMPORTANT]
-> This project serves as a personal training and small showcase project. It is intended for my own educational purposes and to demonstrate my skills and interests in software development and algorithms. It's not aimed at wide distribution or commercial use. Contributions, feedback, and suggestions are welcome but please note that this is an older personal development project.
+> This project serves as a personal training and small showcase project. It is intended for my own educational purposes and to demonstrate my skills and interests in software development in a fullstack environment. It's not aimed at wide distribution or commercial use. Contributions, feedback, and suggestions are welcome but please note that this is an older personal development project.
 > The project was primarily a learning endeavor aimed at improving my skills in React, Node.js, and Docker during the late 2022 to early 2023 timeframe. Looking back, my skills have significantly advanced since then, and there are many aspects of the project I would approach differently today.
