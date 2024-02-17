@@ -16,7 +16,7 @@ Follow these steps to set up and launch the Meal Application on your local syste
 
     Clone the repository to your local machine using the following command:
    
-    `git@github.com:MoHe99/meal-application.git`
+    `git clone git@github.com:MoHe99/meal-application.git`
     
 3. **Install dependencies**
    
