@@ -26,7 +26,7 @@ Follow these steps to set up and launch the Meal Application on your local syste
     
 5. **Create environment variables**
    
-    Create a file in the root directory named .env and copy the content of .env.sample in it. Fill the empty variables with your custom data.
+    Create a file in the root directory named `.env` and copy the content of `.env.sample` in it. Fill the empty variables with your custom data.
 
 > [!NOTE]
 > In cases where I applied to a company, I can give you environment variables for my prepared Auth0 Service and credentials for test users, if you would like to test the application in action.
