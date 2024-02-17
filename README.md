@@ -20,12 +20,9 @@ Follow these steps to set up and launch the Meal Application on your local syste
     
 3. **Install dependencies**
    
-    Navigate to the cloned repository directory and install all required dependencies:
-   
-        1.
-           `cd meal-application/frontend && pnpm i`
-        2.
-           `cd ../api && pnpm i`
+    To navigate to the cloned repository directory and install all required dependencies run:
+
+       First `cd meal-application/frontend && pnpm i` and then `cd ../api && pnpm i`.
     
 5. **Create environment variables**
    
