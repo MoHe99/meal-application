@@ -43,32 +43,17 @@ Open `http://localhost:3000`
 
 ## Useful commands
 
-### Start application
-`make app-start`
-
-### Stop application
-`make app-stop`
-
-### Restart application
-`make app-restart`
-
-### Rebuild application
-`make app-rebuild`
-
-### Destroy application
-`make app-destroy`
-
-### Show logs of container (for example "api")
-`make logs-DOCKER-COMPOSE-SERVICE-NAME`
-
-### Log into shell of container (for example "api")
-`make bash-DOCKER-COMPOSE-SERVICE-NAME`
-
-### Use linter
-`make lint`
-
-### Use formatter
-`make format`
+| Action                    | Command                                   |
+|---------------------------|-------------------------------------------|
+| Start application         | `make app-start`                          |
+| Stop application          | `make app-stop`                           |
+| Restart application       | `make app-restart`                        |
+| Rebuild application       | `make app-rebuild`                        |
+| Destroy application       | `make app-destroy`                        |
+| Show logs of container    | `make logs-DOCKER-COMPOSE-SERVICE-NAME`   |
+| Log into shell of container | `make bash-DOCKER-COMPOSE-SERVICE-NAME`  |
+| Use linter                | `make lint`                               |
+| Use formatter             | `make format`                             |
 
 ## Important Note
 
