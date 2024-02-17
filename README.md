@@ -55,8 +55,7 @@ Open `http://localhost:3000`
 | Use linter                | `make lint`                               |
 | Use formatter             | `make format`                             |
 
-## Important Note
+> [!IMPORTANT]
+> This project, a simple meal application, was one of my initial attempts at developing an API with Node.js, coupled with a consuming frontend built using React. It features a basic CRUD (Create, Read, Update, Delete) API for managing meals stored in a PostgreSQL database. The application includes a straightforward authentication and authorization system utilizing Auth0. The React frontend provides a basic user interface for all functionalities. However, the booking feature in the API remains incomplete, which means the corresponding frontend functionality is non-operative.
 
-This project, a simple meal application, was one of my initial attempts at developing an API with Node.js, coupled with a consuming frontend built using React. It features a basic CRUD (Create, Read, Update, Delete) API for managing meals stored in a PostgreSQL database. The application includes a straightforward authentication and authorization system utilizing Auth0. The React frontend provides a basic user interface for all functionalities. However, the booking feature in the API remains incomplete, which means the corresponding frontend functionality is non-operative.
-
-The project was primarily a learning endeavor aimed at improving my skills in React, Node.js, and Docker during the late 2022 to early 2023 timeframe. Looking back, my skills have significantly advanced since then, and there are many aspects of the project I would approach differently today.
+> The project was primarily a learning endeavor aimed at improving my skills in React, Node.js, and Docker during the late 2022 to early 2023 timeframe. Looking back, my skills have significantly advanced since then, and there are many aspects of the project I would approach differently today.
