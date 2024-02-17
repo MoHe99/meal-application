@@ -17,8 +17,8 @@ const port = process.env.EXPRESS_SYSTEM_PORT;
 const app: Express = express();
 
 const jwtCheck = auth({
-	audience: 'https://node-application/api',
-	issuerBaseURL: 'https://mh-wbdv.eu.auth0.com/',
+	audience: process.env.VITE_AUTH0_AUDIENCE,
+	issuerBaseURL: `https://${process.env.VITE_AUTH0_DOMAIN}`,
 	tokenSigningAlg: 'RS256',
 });
 
