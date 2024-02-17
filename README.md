@@ -14,17 +14,14 @@ Then do both of the following:
 - `cd frontend && pnpm i`
 - `cd api && pnpm i`
 
-### Start application
-`make app-start`
+### Create .env
+Create a file in the root directory named ".env" and copy the content of ".env.sample" in it. In there fill the empty variables with your custom data.
 
-### Visit frontend
-Open `http://localhost:3000`
-
-## In cases where I applied to a company
-### Get correct Auth0 Variables
+### In cases where I applied to a company
+#### Get correct Auth0 Variables
 I can give you the correct environment variables for Auth0, if you would like to test the login functionality and therefore the whole application beyond code reviewing.
 
-### Log in
+#### Log in
 - Test Admin credentials: 
     - admin@test.de
     - Password1!
@@ -32,6 +29,12 @@ I can give you the correct environment variables for Auth0, if you would like to
     - user@test.de
     - Password1!
 It is also possible to register with an own user (only normal ones)
+
+### Start application
+`make app-start`
+
+### Visit frontend
+Open `http://localhost:3000`
 
 ### Log in
 - Test Admin credentials: 
